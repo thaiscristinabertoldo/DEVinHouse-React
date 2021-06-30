@@ -14,12 +14,16 @@ export const UserInfo = ({ user }) => {
         </div>
 
         <div className={classes.item}>
-          <Typography variant="h4">{user?.name}</Typography>
+          <Typography variant="h4" align="center">
+            {user?.name}
+          </Typography>
         </div>
 
         <div className={classes.item}>
-          <Typography variant="h6">{user?.occupation}</Typography>
-          <Typography variant="subtitle1">
+          <Typography variant="h6" align="center">
+            {user?.occupation}
+          </Typography>
+          <Typography variant="subtitle1" align="center">
             {`${user?.address?.city || '-'}, 
             ${user?.address?.state || '-'}, 
             ${user?.address?.country || '-'}`}
