@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { Button, Typography } from '@material-ui/core'
@@ -20,6 +21,12 @@ export const UserItem = ({ user }) => {
       )}
 
       <div className={classes.button}>
+        <Link to={`/users/${user.id}`} className={classes.link}>
+          <Button variant="outlined" color="secondary">
+            Visualizar Perfil
+          </Button>
+        </Link>
+
         <Button variant="contained" color="primary">
           + Conectar
         </Button>

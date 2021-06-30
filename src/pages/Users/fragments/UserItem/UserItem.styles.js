@@ -7,6 +7,9 @@ export const useStyles = makeStyles((theme) => ({
   button: {
     display: 'flex',
     marginTop: theme.spacing(2),
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+  },
+  link: {
+    textDecoration: 'none',
   },
 }))
