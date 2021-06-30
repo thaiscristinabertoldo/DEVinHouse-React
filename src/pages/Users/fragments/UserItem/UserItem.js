@@ -4,9 +4,9 @@ import { Button, Typography } from '@material-ui/core'
 
 import { AvatarInfo, CardContainer } from '../../../../components'
 import { AvatarAdditionalInfo } from '../AvatarAdditionalInfo'
-import { useStyles } from './CardUser.styles'
+import { useStyles } from './UserItem.styles'
 
-export const CardUser = ({ user }) => {
+export const UserItem = ({ user }) => {
   const classes = useStyles()
 
   return (
@@ -28,6 +28,6 @@ export const CardUser = ({ user }) => {
   )
 }
 
-CardUser.propTypes = {
+UserItem.propTypes = {
   user: PropTypes.object.isRequired,
 }
