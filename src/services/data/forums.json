@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "user": {
+      "id": 1,
+      "name": "Carol J. Wilson"
+    },
+    "date": "28/06/2021 18:50",
+    "question": {
+      "title": "Lorem Ipsum is simply dummy text?",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and",
+      "tags": ["JavaScript", "React"]
+    },
+    "totalLikes": 5,
+    "comments": [
+      {
+        "id": 1,
+        "user": {
+          "id": 3,
+          "name": "Jho J. Star"
+        },
+        "date": "29/06/2021 10:20",
+        "comment": "Standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "id": 2,
+        "user": {
+          "id": 2,
+          "name": "Brenda J. Stone"
+        },
+        "date": "28/06/2021 19:40",
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      }
+    ]
+  }
+]
