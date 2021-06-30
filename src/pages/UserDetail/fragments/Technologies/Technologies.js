@@ -2,7 +2,7 @@ import { Chip, Grid, Typography } from '@material-ui/core'
 import { CardContainer } from '../../../../components'
 import { useStyles } from './Technologies.styles'
 
-export const Technologies = () => {
+export const Technologies = ({ technologies = [] }) => {
   const classes = useStyles()
 
   return (
@@ -12,12 +12,11 @@ export const Technologies = () => {
       </div>
 
       <Grid container spacing={2}>
-        <Grid item>
-          <Chip variant="outlined" color="primary" label="React" />
-        </Grid>
-        <Grid item>
-          <Chip variant="outlined" color="primary" label="JavaScript" />
-        </Grid>
+        {technologies.map((item) => (
+          <Grid item>
+            <Chip variant="outlined" color="primary" label={item} />
+          </Grid>
+        ))}
       </Grid>
     </CardContainer>
   )
