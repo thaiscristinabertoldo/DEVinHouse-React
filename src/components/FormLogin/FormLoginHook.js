@@ -1,6 +1,6 @@
-import { Button } from '@material-ui/core'
-import { OutlinedInput } from '@material-ui/core'
+import { Button, OutlinedInput } from '@material-ui/core'
 import { FormikProvider, useFormik, useFormikContext } from 'formik'
+
 import { DivError } from '../DivError'
 import { useStyles } from './FormLogin.styles'
 

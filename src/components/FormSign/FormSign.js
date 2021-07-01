@@ -1,8 +1,7 @@
-import { Button, IconButton } from '@material-ui/core'
-import { OutlinedInput } from '@material-ui/core'
+import { Button, Divider, IconButton, OutlinedInput, Typography } from '@material-ui/core'
 import { DeleteOutline as DeleteOutlineIcon } from '@material-ui/icons'
-import { Divider, Typography } from '@material-ui/core'
 import { ErrorMessage, Field, FieldArray, Form, Formik } from 'formik'
+
 import { FieldPassword } from '../FieldPassword'
 import { DivError } from '../DivError'
 import { useStyles } from './FormSign.styles'
