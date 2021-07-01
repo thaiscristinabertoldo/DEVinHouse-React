@@ -11,7 +11,7 @@ import { Routes } from './Routes'
 function App() {
   const [darkMode, setDarkMode] = useState(false)
 
-  const toggleTheme = () => {
+  const onToggleTheme = () => {
     setDarkMode((oldValue) => !oldValue)
   }
 
@@ -22,7 +22,7 @@ function App() {
       <CssBaseline />
 
       <BrowserRouter>
-        <BaseLayout toggleTheme={toggleTheme}>
+        <BaseLayout onToggleTheme={onToggleTheme}>
           <Routes />
         </BaseLayout>
       </BrowserRouter>
