@@ -11,7 +11,7 @@ import Brightness7 from '@material-ui/icons/Brightness7'
 import { useStyles } from './Navbar.styles'
 import { MenuContainer } from './fragments/MenuContainer/MenuContainer'
 
-export const NavBar = ({ toggleTheme }) => {
+export const NavBar = ({ onToggleTheme }) => {
   const classes = useStyles()
   const { palette } = useTheme()
 
@@ -47,7 +47,7 @@ export const NavBar = ({ toggleTheme }) => {
           </Typography>
 
           <Tooltip title="Add" aria-label="add">
-            <IconButton aria-label="Alternar tema claro/escuro" onClick={toggleTheme}>
+            <IconButton aria-label="Alternar tema claro/escuro" onClick={onToggleTheme}>
               {palette?.type === 'dark' ? (
                 <Brightness4 className={classes.iconColor} />
               ) : (
@@ -64,5 +64,5 @@ export const NavBar = ({ toggleTheme }) => {
 }
 
 NavBar.propTypes = {
-  toggleTheme: PropTypes.func.isRequired,
+  onToggleTheme: PropTypes.func.isRequired,
 }
