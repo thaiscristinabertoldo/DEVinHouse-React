@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { Button, Typography } from '@material-ui/core'
 
 import { AvatarInfo, CardContainer } from '../../../../components'
 import { AvatarAdditionalInfo } from '../AvatarAdditionalInfo'
-import { useStyles } from './CardUser.styles'
+import { useStyles } from './UserItem.styles'
 
-export const CardUser = ({ user }) => {
+export const UserItem = ({ user }) => {
   const classes = useStyles()
 
   return (
@@ -20,6 +21,12 @@ export const CardUser = ({ user }) => {
       )}
 
       <div className={classes.button}>
+        <Link to={`/users/${user.id}`} className={classes.link}>
+          <Button variant="outlined" color="secondary">
+            Visualizar Perfil
+          </Button>
+        </Link>
+
         <Button variant="contained" color="primary">
           + Conectar
         </Button>
@@ -28,6 +35,6 @@ export const CardUser = ({ user }) => {
   )
 }
 
-CardUser.propTypes = {
+UserItem.propTypes = {
   user: PropTypes.object.isRequired,
 }

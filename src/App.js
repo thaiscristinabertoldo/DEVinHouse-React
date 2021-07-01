@@ -1,26 +1,32 @@
-import { Divider } from '@material-ui/core'
+import { useState } from 'react'
+
+import { BrowserRouter } from 'react-router-dom'
+
+import { CssBaseline, ThemeProvider } from '@material-ui/core'
+
+import { getTheme } from './theme'
 import { BaseLayout } from './layout'
-import { Forums, Users, UserDetail } from './pages'
+import { Routes } from './Routes'
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
+
+  const onToggleTheme = () => {
+    setDarkMode((oldValue) => !oldValue)
+  }
+
+  const theme = getTheme(darkMode)
+
   return (
-    <BaseLayout>
-      <div style={{ marginBottom: '50px', marginTop: '50px' }}>
-        <h1>Users</h1>
-        <Users />
-      </div>
-      <Divider />
-      <div style={{ marginBottom: '50px', marginTop: '50px' }}>
-        <h1>UserDetail</h1>
-        <UserDetail />
-      </div>
-      <Divider />
-      <div style={{ marginBottom: '50px', marginTop: '50px' }}>
-        <h1>Forums</h1>
-        <Forums />
-      </div>
-      <Divider />
-    </BaseLayout>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      <BrowserRouter>
+        <BaseLayout onToggleTheme={onToggleTheme}>
+          <Routes />
+        </BaseLayout>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
