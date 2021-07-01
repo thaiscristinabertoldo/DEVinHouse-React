@@ -49,9 +49,9 @@ export const NavBar = ({ onToggleTheme }) => {
           <Tooltip title="Add" aria-label="add">
             <IconButton aria-label="Alternar tema claro/escuro" onClick={onToggleTheme}>
               {palette?.type === 'dark' ? (
-                <Brightness4 className={classes.iconColor} />
-              ) : (
                 <Brightness7 className={classes.iconColor} />
+              ) : (
+                <Brightness4 className={classes.iconColor} />
               )}
             </IconButton>
           </Tooltip>
