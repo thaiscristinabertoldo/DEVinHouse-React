@@ -1,26 +1,17 @@
-import { Button, Divider, IconButton, OutlinedInput, Typography } from '@material-ui/core'
+import { Button, IconButton, OutlinedInput, Typography } from '@material-ui/core'
 import { DeleteOutline as DeleteOutlineIcon } from '@material-ui/icons'
 import { ErrorMessage, Field, FieldArray, Form, Formik } from 'formik'
 
 import { FieldPassword } from '../FieldPassword'
 import { DivError } from '../DivError'
+import { FormTitle } from '../FormTitle'
 import { useStyles } from './FormSign.styles'
+import { CardContainer } from '../CardContainer'
+import { signSchema, signInitalValues } from './FormSignSchema'
+import { FieldCpf } from '../FieldCpf'
 
 export const FormSign = () => {
   const classes = useStyles()
-
-  const validate = (values) => {
-    const errors = {}
-    if (!values.email) {
-      errors.email = 'Campo obrigatório'
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-      errors.email = 'E-mail inválido'
-    }
-    if (!values.password) {
-      errors.password = 'Campo obrigatório'
-    }
-    return errors
-  }
 
   const handleSubmit = (values, { setSubmitting }) => {
     setTimeout(() => {
@@ -30,19 +21,93 @@ export const FormSign = () => {
   }
 
   return (
-    <>
+    <CardContainer>
       <div className={classes.title}>
-        <Typography variant="h4" align="center">
+        <Typography variant="h4" align="center" color="textSecondary">
           Efetuar Cadastro
         </Typography>
       </div>
-      <Formik initialValues={{ email: '', password: '', technologies: [] }} onSubmit={handleSubmit} validate={validate}>
+      <Formik initialValues={signInitalValues} onSubmit={handleSubmit} validationSchema={signSchema}>
         {({ values, isSubmitting, isValid, errors, resetForm, touched }) => (
           <Form>
+            {console.log('errors', errors)}
+            <FormTitle title="Dados de identificação" />
+
             <div className={classes.formItem}>
               <Field
                 fullWidth
                 autoFocus
+                required
+                name="name"
+                placeholder="Nome"
+                error={touched?.name && errors?.name}
+                as={OutlinedInput}
+              />
+              <ErrorMessage name="name" component={DivError} />
+            </div>
+
+            <div className={classes.formItem}>
+              <Field
+                fullWidth
+                name="occupation"
+                placeholder="Profissão"
+                error={touched?.occupation && errors?.occupation}
+                as={OutlinedInput}
+              />
+              <ErrorMessage name="occupation" component={DivError} />
+            </div>
+
+            <div className={classes.formItem}>
+              <Field
+                type="text"
+                fullWidth
+                name="cpf"
+                placeholder="CPF"
+                error={touched?.cpf && errors?.cpf}
+                as={FieldCpf}
+              />
+              <ErrorMessage name="cpf" component={DivError} />
+            </div>
+
+            <FormTitle title="Dados de endereço" />
+            <div className={classes.formItem}>
+              <Field
+                fullWidth
+                name="address.city"
+                placeholder="Cidade"
+                error={touched?.address?.city && errors?.address?.city}
+                as={OutlinedInput}
+              />
+              <ErrorMessage name="address.city" component={DivError} />
+            </div>
+
+            <div className={classes.formItem}>
+              <Field
+                fullWidth
+                name="address.estate"
+                placeholder="Estado"
+                error={touched?.address?.estate && errors?.address?.estate}
+                as={OutlinedInput}
+              />
+              <ErrorMessage name="address.estate" component={DivError} />
+            </div>
+
+            <div className={classes.formItem}>
+              <Field
+                fullWidth
+                name="address.country"
+                placeholder="Pais"
+                error={touched?.address?.country && errors?.address?.country}
+                as={OutlinedInput}
+              />
+              <ErrorMessage name="address.country" component={DivError} />
+            </div>
+
+            <FormTitle title="Dados de Login" />
+
+            <div className={classes.formItem}>
+              <Field
+                fullWidth
                 name="email"
                 placeholder="E-mail"
                 error={touched?.email && errors?.email}
@@ -63,9 +128,18 @@ export const FormSign = () => {
             </div>
 
             <div className={classes.formItem}>
-              <Typography variant="body1">Tecnologias</Typography>
-              <Divider />
+              <Field
+                fullWidth
+                name="passwordCheck"
+                placeholder="Confirmar senha"
+                error={touched?.passwordCheck && errors?.passwordCheck}
+                as={FieldPassword}
+              />
+              <ErrorMessage name="passwordCheck" component={DivError} />
             </div>
+
+            <FormTitle title="Tecnologias" />
+            {typeof errors?.technologies === 'string' && <DivError>{errors?.technologies}</DivError>}
 
             <div className={classes.formItem}>
               <FieldArray
@@ -84,12 +158,13 @@ export const FormSign = () => {
                     </div>
 
                     {values.technologies &&
-                      values.technologies.map((technologie, index) => (
+                      values.technologies.map((_, index) => (
                         <div key={index} className={classes.formItem}>
                           <div className={classes.divTec}>
                             <Field
                               name={`technologies[${index}]`}
                               placeholder="Tecnologia"
+                              error={touched?.technologies?.[index] && errors?.technologies?.[index]}
                               className={classes.input}
                               as={OutlinedInput}
                             />
@@ -98,6 +173,7 @@ export const FormSign = () => {
                               <DeleteOutlineIcon className={classes.icon} />
                             </IconButton>
                           </div>
+                          <ErrorMessage name={`technologies[${index}]`} component={DivError} />
                         </div>
                       ))}
                   </>
@@ -117,6 +193,6 @@ export const FormSign = () => {
           </Form>
         )}
       </Formik>
-    </>
+    </CardContainer>
   )
 }
