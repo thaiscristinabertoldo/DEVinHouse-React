@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -13,6 +14,7 @@ import { MenuContainer } from './fragments/MenuContainer/MenuContainer'
 
 export const NavBar = ({ onToggleTheme }) => {
   const classes = useStyles()
+  const history = useHistory()
   const { palette } = useTheme()
 
   const [anchorEl, setAnchorEl] = useState(null)
@@ -56,7 +58,9 @@ export const NavBar = ({ onToggleTheme }) => {
             </IconButton>
           </Tooltip>
 
-          <Button color="inherit">Entrar</Button>
+          <Button color="inherit" onClick={() => history.push('/login')}>
+            Entrar
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

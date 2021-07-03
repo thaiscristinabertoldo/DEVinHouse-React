@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
 import { Button, OutlinedInput, Typography } from '@material-ui/core'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 
+import { CardContainer } from '../CardContainer'
 import { DivError } from '../DivError'
 import { FieldPassword } from '../FieldPassword/FieldPassword'
 import { useStyles } from './FormLogin.styles'
@@ -31,7 +33,7 @@ export const FormLogin = () => {
   }
 
   return (
-    <>
+    <CardContainer>
       <div className={classes.title}>
         <Typography variant="h4" align="center">
           Efetuar Login
@@ -59,9 +61,15 @@ export const FormLogin = () => {
                 Enviar
               </Button>
             </div>
+
+            <Link className={classes.link} to="/sign">
+              <Typography variant="body2" color="textPrimary">
+                Não tem uma conta? Registre-se!
+              </Typography>
+            </Link>
           </Form>
         )}
       </Formik>
-    </>
+    </CardContainer>
   )
 }

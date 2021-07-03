@@ -11,6 +11,6 @@ export const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   iconColor: {
-    color: '#fff',
+    color: theme.palette.common.white,
   },
 }))

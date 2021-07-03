@@ -10,5 +10,9 @@ export const useStyles = makeStyles((theme) => ({
   formButton: {
     display: 'flex',
     justifyContent: 'space-between',
+    marginBottom: theme.spacing(2),
+  },
+  link: {
+    textDecoration: 'none',
   },
 }))
