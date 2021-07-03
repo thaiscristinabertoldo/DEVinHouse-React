@@ -30,7 +30,6 @@ export const FormSign = () => {
       <Formik initialValues={signInitalValues} onSubmit={handleSubmit} validationSchema={signSchema}>
         {({ values, isSubmitting, isValid, errors, resetForm, touched }) => (
           <Form>
-            {console.log('errors', errors)}
             <FormTitle title="Dados de identificação" />
 
             <div className={classes.formItem}>
@@ -187,7 +186,7 @@ export const FormSign = () => {
               </Button>
 
               <Button color="primary" variant="contained" type="submit" disabled={isSubmitting || !isValid}>
-                Acessar
+                Cadastrar
               </Button>
             </div>
           </Form>
