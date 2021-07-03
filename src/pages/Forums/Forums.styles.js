@@ -6,4 +6,8 @@ export const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(4),
     right: theme.spacing(4),
   },
+  dialog: {
+    padding: theme.spacing(4),
+    minWidth: '500px',
+  },
 }))
