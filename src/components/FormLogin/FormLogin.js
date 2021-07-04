@@ -62,7 +62,7 @@ export const FormLogin = () => {
               </Button>
             </div>
 
-            <Link className={classes.link} to="/sign">
+            <Link className={classes.link} to="/signIn">
               <Typography variant="body2" color="textPrimary">
                 Não tem uma conta? Registre-se!
               </Typography>

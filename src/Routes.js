@@ -1,5 +1,5 @@
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { FormLogin, FormSign, FormLoginHook } from './components'
+import { FormLogin, FormSignIn, FormLoginHook } from './components'
 
 import { Forums, Users, UserDetail } from './pages'
 
@@ -14,7 +14,7 @@ export const Routes = () => {
       <Route path="/users/:id" component={UserDetail} />
       <Route path="/login" component={FormLogin} />
       <Route path="/loginhook" component={FormLoginHook} />
-      <Route path="/sign" component={FormSign} />
+      <Route path="/signIn" component={FormSignIn} />
     </Switch>
   )
 }

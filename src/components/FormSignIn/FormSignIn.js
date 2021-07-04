@@ -5,12 +5,12 @@ import { ErrorMessage, Field, FieldArray, Form, Formik } from 'formik'
 import { FieldPassword } from '../FieldPassword'
 import { DivError } from '../DivError'
 import { FormTitle } from '../FormTitle'
-import { useStyles } from './FormSign.styles'
+import { useStyles } from './FormSignIn.styles'
 import { CardContainer } from '../CardContainer'
-import { signSchema, signInitalValues } from './FormSignSchema'
+import { signInSchema, signInInitalValues } from './FormSignInSchema'
 import { FieldCpf } from '../FieldCpf'
 
-export const FormSign = () => {
+export const FormSignIn = () => {
   const classes = useStyles()
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -27,7 +27,7 @@ export const FormSign = () => {
           Efetuar Cadastro
         </Typography>
       </div>
-      <Formik initialValues={signInitalValues} onSubmit={handleSubmit} validationSchema={signSchema}>
+      <Formik initialValues={signInInitalValues} onSubmit={handleSubmit} validationSchema={signInSchema}>
         {({ values, isSubmitting, isValid, errors, resetForm, touched }) => (
           <Form>
             <FormTitle title="Dados de identificação" />
