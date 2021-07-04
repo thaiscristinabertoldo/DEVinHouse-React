@@ -6,7 +6,7 @@ Yup.addMethod(Yup.string, 'cpf', function cpfValidator(message = 'CPF inválido'
   return this.test('cpf', message, isValidCPF)
 })
 
-export const signSchema = Yup.object().shape({
+export const signInSchema = Yup.object().shape({
   name: Yup.string().required('Campo obrigatório').min(3, 'Mínimo 3 caracteres'),
   occupation: Yup.string().required('Campo obrigatório').max(20, 'Máximo 10 caracteres'),
   cpf: Yup.string().cpf('CPF inválido'),
@@ -23,7 +23,7 @@ export const signSchema = Yup.object().shape({
   technologies: Yup.array().of(Yup.string().required('Campo obrigatório')).min(1, 'Mínimo 1 tecnologia'),
 })
 
-export const signInitalValues = {
+export const signInInitalValues = {
   name: '',
   occupation: '',
   cpf: '',

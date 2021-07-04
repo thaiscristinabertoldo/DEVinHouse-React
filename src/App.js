@@ -3,7 +3,9 @@ import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { CssBaseline, ThemeProvider } from '@material-ui/core'
+import { SnackbarProvider } from 'notistack'
 
+import { SnackbarCloseButton } from './components'
 import { getTheme } from './theme'
 import { BaseLayout } from './layout'
 import { Routes } from './Routes'
@@ -22,9 +24,16 @@ function App() {
       <CssBaseline />
 
       <BrowserRouter>
-        <BaseLayout onToggleTheme={onToggleTheme}>
-          <Routes />
-        </BaseLayout>
+        <SnackbarProvider
+          maxSnack={1}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          autoHideDuration={2000}
+          action={(key) => <SnackbarCloseButton key={key} />}
+        >
+          <BaseLayout onToggleTheme={onToggleTheme}>
+            <Routes />
+          </BaseLayout>
+        </SnackbarProvider>
       </BrowserRouter>
     </ThemeProvider>
   )

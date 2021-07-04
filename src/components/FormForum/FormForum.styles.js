@@ -10,9 +10,15 @@ export const useStyles = makeStyles((theme) => ({
   formButton: {
     display: 'flex',
     justifyContent: 'space-between',
-    marginBottom: theme.spacing(2),
   },
-  link: {
-    textDecoration: 'none',
+  divArray: {
+    display: 'flex',
+  },
+  input: {
+    marginRight: theme.spacing(1),
+    flex: 1,
+  },
+  icon: {
+    color: theme.palette.error.main,
   },
 }))

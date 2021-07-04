@@ -5,7 +5,7 @@ import { useStyles } from './UserInfo.styles'
 
 export const UserInfo = ({ user }) => {
   const classes = useStyles()
-  console.log('aaaa', user)
+
   return (
     <CardContainer>
       <div className={classes.container}>
