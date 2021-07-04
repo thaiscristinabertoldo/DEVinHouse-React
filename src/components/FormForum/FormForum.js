@@ -92,7 +92,7 @@ export const FormForum = ({ onSubmit }) => {
               </Button>
 
               <Button color="primary" variant="contained" type="submit" disabled={isSubmitting || !isValid}>
-                Acessar
+                Salvar
               </Button>
             </div>
           </Form>
