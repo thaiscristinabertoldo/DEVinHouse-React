@@ -1,28 +1,15 @@
-import { useState } from 'react'
-
 import { BrowserRouter } from 'react-router-dom'
 
-import { CssBaseline, ThemeProvider } from '@material-ui/core'
 import { SnackbarProvider } from 'notistack'
 
 import { SnackbarCloseButton } from './components'
-import { getTheme } from './theme'
 import { BaseLayout } from './layout'
 import { Routes } from './Routes'
+import { AuthProvider, CustomThemeProvider } from './contexts'
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false)
-
-  const onToggleTheme = () => {
-    setDarkMode((oldValue) => !oldValue)
-  }
-
-  const theme = getTheme(darkMode)
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-
+    <CustomThemeProvider>
       <BrowserRouter>
         <SnackbarProvider
           maxSnack={1}
@@ -30,12 +17,14 @@ function App() {
           autoHideDuration={2000}
           action={(key) => <SnackbarCloseButton key={key} />}
         >
-          <BaseLayout onToggleTheme={onToggleTheme}>
-            <Routes />
-          </BaseLayout>
+          <AuthProvider>
+            <BaseLayout>
+              <Routes />
+            </BaseLayout>
+          </AuthProvider>
         </SnackbarProvider>
       </BrowserRouter>
-    </ThemeProvider>
+    </CustomThemeProvider>
   )
 }
 
