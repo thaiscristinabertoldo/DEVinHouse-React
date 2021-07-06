@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Button, OutlinedInput, Typography } from '@material-ui/core'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 
@@ -6,15 +6,18 @@ import { CardContainer } from '../CardContainer'
 import { DivError } from '../DivError'
 import { FieldPassword } from '../FieldPassword/FieldPassword'
 import { useStyles } from './FormLogin.styles'
+import { useAuth } from '../../contexts'
 
 export const FormLogin = () => {
   const classes = useStyles()
+  const history = useHistory()
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2))
-      setSubmitting(false)
-    }, 400)
+  const { login } = useAuth()
+
+  const handleSubmit = async (values, { setSubmitting }) => {
+    await login()
+    setSubmitting(false)
+    history.push('/')
   }
 
   const validate = (values) => {
