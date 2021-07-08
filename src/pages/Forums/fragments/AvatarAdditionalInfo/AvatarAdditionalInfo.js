@@ -15,7 +15,9 @@ export const AvatarAdditionalInfo = ({ name, date, text, variantText = 'h5' }) =
           <Typography variant="caption">{date}</Typography>
         </div>
       </div>
-      <Typography variant={variantText}>{text}</Typography>
+      <Typography aria-label="Título" variant={variantText}>
+        {text}
+      </Typography>
     </>
   )
 }

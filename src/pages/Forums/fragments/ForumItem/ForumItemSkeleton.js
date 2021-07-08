@@ -7,7 +7,7 @@ export const ForumItemSkeleton = () => {
   const classes = useStyles()
 
   return (
-    <Grid item xs={12}>
+    <Grid item xs={12} data-testid="loadingContainer">
       <CardContainer>
         <div className={classes.root}>
           <Skeleton animation="wave" variant="circle" width={80} height={80} />
