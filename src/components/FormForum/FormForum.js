@@ -74,7 +74,7 @@ export const FormForum = ({ onSubmit }) => {
                               as={OutlinedInput}
                             />
 
-                            <IconButton aria-label="remover" onClick={() => arrayHelpers.remove(index)}>
+                            <IconButton aria-label="Remover" onClick={() => arrayHelpers.remove(index)}>
                               <DeleteOutlineIcon className={classes.icon} />
                             </IconButton>
                           </div>
@@ -92,7 +92,7 @@ export const FormForum = ({ onSubmit }) => {
               </Button>
 
               <Button color="primary" variant="contained" type="submit" disabled={isSubmitting || !isValid}>
-                Salvar
+                Cadastrar
               </Button>
             </div>
           </Form>
