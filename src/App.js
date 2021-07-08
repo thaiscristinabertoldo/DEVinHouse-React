@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Divider } from '@material-ui/core'
+import { BaseLayout } from './layout'
+import { Forums, Users, UserDetail } from './pages'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BaseLayout>
+      <div style={{ marginBottom: '50px', marginTop: '50px' }}>
+        <h1>Users</h1>
+        <Users />
+      </div>
+      <Divider />
+      <div style={{ marginBottom: '50px', marginTop: '50px' }}>
+        <h1>UserDetail</h1>
+        <UserDetail />
+      </div>
+      <Divider />
+      <div style={{ marginBottom: '50px', marginTop: '50px' }}>
+        <h1>Forums</h1>
+        <Forums />
+      </div>
+      <Divider />
+    </BaseLayout>
+  )
 }
 
-export default App;
+export default App
