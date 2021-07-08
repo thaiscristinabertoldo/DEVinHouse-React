@@ -25,7 +25,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
+    "test:dev": "react-scripts test",
+    "coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +46,21 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 10,
+        "branches": 10,
+        "functions": 10,
+        "lines": 10
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",      
+      "!src/**/*.{style,styles}.js",
+      "!src/**/(index|App).js"
     ]
   }
 }
