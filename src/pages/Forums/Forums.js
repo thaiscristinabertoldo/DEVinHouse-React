@@ -63,7 +63,7 @@ export const Forums = () => {
 
       {isLoading && <ForumItemSkeleton />}
 
-      <Grid container spacing={8}>
+      <Grid container spacing={8} data-testid="gridContainer">
         {forums.map((forum) => (
           <ForumItem key={forum.id} forum={forum} />
         ))}
@@ -77,7 +77,7 @@ export const Forums = () => {
         }}
         unmountOnExit
       >
-        <Fab color="primary" aria-label="add" className={classes.fab} onClick={() => setOpenDialog(true)}>
+        <Fab color="primary" aria-label="Adicionar" className={classes.fab} onClick={() => setOpenDialog(true)}>
           <AddIcon />
         </Fab>
       </Zoom>
